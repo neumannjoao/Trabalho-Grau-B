@@ -80,7 +80,8 @@ def alterar_status(matriz):
     #Criar função aqui
 
 ########################## Código ##########################
-while True:  
+
+while True: #apresenta o menu até o usuário digitar 7 
     print ('******* MENU *******')
     print('1) Cadastrar felino ')
     print('2) Alterar status de felino')
@@ -105,7 +106,8 @@ while True:
     elif opcaousuario == '6':
         salvar('registros.csv', matriz)
     elif opcaousuario == '7':
-        print("Saindo do programa...")
+        print("Salvando e Saindo do programa...")
+        salvar('registros.csv', matriz)
         break
     else:
         print("Opção inválida. Por favor, digite uma opção válida")
