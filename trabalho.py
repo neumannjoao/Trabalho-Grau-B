@@ -5,14 +5,14 @@ with open('registros.csv', 'r', newline='') as csvfile:
     reader = csv.reader(csvfile, delimiter=';')
     matriz = list(reader)
 
-
+#função para salvar as alterações no arquivo CSV (opção 6 no menu)
 def salvar(nome_arquivo, matriz):
     with open(nome_arquivo, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=';')
         for linha in matriz:
             writer.writerow(linha)
 
-
+#função para cadastrar felinos (opção 1 do menu)
 def CadastrarFelino(matriz):
     while True:
         nome = input('Digite o Nome do Felino (ou digite 0 para voltar ao menu principal): ')
@@ -31,7 +31,7 @@ def CadastrarFelino(matriz):
 
     print("Novo felino cadastrado com sucesso.")
 
-
+#função para alterar informações dos felinos (opção 2 do menu)
 def alterar_status(matriz):
     while True:
         print("******* Lista de Felinos *******")
@@ -69,6 +69,15 @@ def alterar_status(matriz):
                 print("Número de felino inválido.")
         except ValueError:
             print("Por favor, digite um número válido para escolher o felino.")
+
+#função para consultar informações dos felinos (opção 3 do menu)
+    #Criar função aqui
+
+#Função para calcular estatísticas sobre a planilha (opção 4 do menu)
+    #Criar função aqui
+
+#Função de filtragem (opção 5 do menu)
+    #Criar função aqui
 
 ########################## Código ##########################
 while True:  
