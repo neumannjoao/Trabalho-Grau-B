@@ -1,7 +1,7 @@
 # Sistema de Registro de Felinos
 Este é um sistema baseado em Python para registrar e gerenciar informações sobre felinos. O sistema permite que os usuários realizem várias operações, incluindo registrar novos felinos, atualizar informações existentes, consultar informações de felinos, gerar estatísticas e filtrar dados.
 
-##Recursos
+## Recursos
 1. Cadastrar Felino
 Permite que os usuários cadastrem novos felinos com seu nome, sexo, idade, raça, cor, status de castração, data de resgate e status de adoção.
 2. Alterar Status de Felino
@@ -17,12 +17,12 @@ Salva todas as alterações feitas no banco de dados de felinos.
 7. Sair do Programa
 Sai do programa e salva todas as alterações não salvas.
 
-##Como Usar
+## Como Usar
 Execute o programa executando o script Python.
 O programa exibirá um menu com as opções disponíveis.
 Selecione uma opção digitando o número correspondente.
 Siga as prompts para realizar a operação desejada.
 Repita os passos 2-4 até que você queira sair do programa.
 
-##Autores
+## Autores
 André Dickel, Bruno Weisheimer e João Vítor Neumann
