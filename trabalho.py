@@ -71,10 +71,36 @@ def alterar_status(matriz):
             print("Por favor, digite um número válido para escolher o felino.")
 
 #função para consultar informações dos felinos (opção 3 do menu)
-    #Criar função aqui
+def consultar_informacoes_felino(matriz):
+    print("\nLista de felinos:")
+    for idx, felino in enumerate(matriz):
+        print(f"{idx + 1}: {felino[0]}")
+    
+    escolha = int(input("Escolha o número do felino que deseja consultar: ")) - 1
+    print("\nInformações do felino selecionado:")
+    print(f"Nome: {matriz[escolha][0]}")
+    print(f"Sexo: {matriz[escolha][1]}")
+    print(f"Idade: {matriz[escolha][2]}")
+    print(f"Raça: {matriz[escolha][3]}")
+    print(f"Cor predominante: {matriz[escolha][4]}")
+    print(f"Castrado: {matriz[escolha][5]}")
+    print(f"Data de resgate: {matriz[escolha][6]}")
+    print(f"Adotado: {matriz[escolha][7]}")
 
 #Função para calcular estatísticas sobre a planilha (opção 4 do menu)
-    #Criar função aqui
+def calcular_estatisticas(matriz):
+    total_felinos = len(matriz)
+    total_machos = sum(1 for felino in matriz if felino[1] == 'M')
+    total_femeas = total_felinos - total_machos
+    
+    total_adotados = sum(1 for felino in matriz if felino[7] == 'S')
+    total_nao_adotados = total_felinos - total_adotados
+    
+    print("\nEstatísticas gerais:")
+    print(f"Porcentagem de machos: {total_machos / total_felinos * 100:.2f}%")
+    print(f"Porcentagem de fêmeas: {total_femeas / total_felinos * 100:.2f}%")
+    print(f"Porcentagem de adotados: {total_adotados / total_felinos * 100:.2f}%")
+    print(f"Porcentagem de não adotados: {total_nao_adotados / total_felinos * 100:.2f}%")
 
 #Função de filtragem (opção 5 do menu)
     #Criar função aqui
@@ -97,10 +123,10 @@ while True: #apresenta o menu até o usuário digitar 7
         CadastrarFelino(matriz)
     elif opcaousuario == '2':
         alterar_status(matriz)
-    # elif opcaousuario == '3':
-    #     consultar_informacoes(matriz)
-    # elif opcaousuario == '4':
-    #     apresentar_estatisticas(matriz)
+    elif opcaousuario == '3':
+        consultar_informacoes_felino(matriz)
+    elif opcaousuario == '4':
+        calcular_estatisticas(matriz)
     # elif opcaousuario == '5':
     #     filtragem_dados(matriz)
     elif opcaousuario == '6':
