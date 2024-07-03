@@ -8,7 +8,7 @@ with open('registros.csv', 'r', newline='') as csvfile:
 # função para salvar as alterações no arquivo CSV (opção 6 no menu)
 def salvar(nome_arquivo, matriz):
     with open(nome_arquivo, 'w', newline='') as csvfile:
-        escrever = csv.escrever(csvfile, delimiter=';')
+        escrever = csv.writer(csvfile, delimiter=';')
         for linha in matriz:
             escrever.writerow(linha)
 
@@ -63,7 +63,6 @@ def alterar_status(matriz):
                             nova_info = input(f"Digite a nova informação para '{felino_selecionado[num_info - 1]}': ")
                             felino_selecionado[num_info - 1] = nova_info
                             print("Informação alterada com sucesso.")
-                            break
                         else:
                             print("Número de informação inválido.")
                     except ValueError:
@@ -73,7 +72,6 @@ def alterar_status(matriz):
         except ValueError:
             print("Por favor, digite um número válido para escolher o felino.")
                
-
 # função para consultar informações dos felinos (opção 3 do menu)
 def consultar_informacoes_felino(matriz):
     print("\nLista de felinos:")
