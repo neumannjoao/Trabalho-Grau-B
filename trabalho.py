@@ -8,9 +8,9 @@ with open('registros.csv', 'r', newline='') as csvfile:
 # função para salvar as alterações no arquivo CSV (opção 6 no menu)
 def salvar(nome_arquivo, matriz):
     with open(nome_arquivo, 'w', newline='') as csvfile:
-        writer = csv.writer(csvfile, delimiter=';')
+        escrever = csv.escrever(csvfile, delimiter=';')
         for linha in matriz:
-            writer.writerow(linha)
+            escrever.writerow(linha)
 
 # função para cadastrar felinos (opção 1 do menu)
 def CadastrarFelino(matriz):
@@ -29,6 +29,7 @@ def CadastrarFelino(matriz):
     nova_linha = [nome, sexo, idade, raca, cor, castrado, data_resgate, adotado]
     matriz.append(nova_linha)
     print("Novo felino cadastrado com sucesso.")
+    print('')
     return
 
 
@@ -62,6 +63,7 @@ def alterar_status(matriz):
                             nova_info = input(f"Digite a nova informação para '{felino_selecionado[num_info - 1]}': ")
                             felino_selecionado[num_info - 1] = nova_info
                             print("Informação alterada com sucesso.")
+                            break
                         else:
                             print("Número de informação inválido.")
                     except ValueError:
@@ -70,6 +72,7 @@ def alterar_status(matriz):
                 print("Número de felino inválido.")
         except ValueError:
             print("Por favor, digite um número válido para escolher o felino.")
+               
 
 # função para consultar informações dos felinos (opção 3 do menu)
 def consultar_informacoes_felino(matriz):
