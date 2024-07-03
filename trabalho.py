@@ -14,22 +14,22 @@ def salvar(nome_arquivo, matriz):
 
 # função para cadastrar felinos (opção 1 do menu)
 def CadastrarFelino(matriz):
-    while True:
-        nome = input('Digite o Nome do Felino (ou digite 0 para voltar ao menu principal): ')
-        if nome == '0':
-            print("Voltando ao menu principal...")
-            break
-        sexo = input('Digite o sexo do Felino (M ou F): ').upper()
-        idade = input('Digite a idade do Felino: ')
-        raca = input('Digite a raça do Felino: ')
-        cor = input('Digite a cor predominante do Felino: ')
-        castrado = input('O felino é castrado? (S ou N): ').upper()
-        data_resgate = input('Digite a data do resgate: [dd/mm/aaaa]')
-        adotado = input('O felino foi adotado? (S ou N): ').upper()
-        nova_linha = [nome, sexo, idade, raca, cor, castrado, data_resgate, adotado]
-        matriz.append(nova_linha)
-
+    nome = input('1 - Digite o Nome do Felino (ou digite 0 para voltar ao menu principal): ').upper()
+    if nome == '0':
+        print("Voltando ao menu principal...")
+        return
+    sexo = input('2 - Digite o sexo do Felino (M ou F): ').upper()
+    idade = input('3 - Digite a idade do Felino: ')
+    raca = input('4 - Digite a raça do Felino: ').upper()
+    cor = input('5 - Digite a cor predominante do Felino: ').upper()
+    castrado = input('6 - O felino é castrado? (S ou N): ').upper()
+    data_resgate = input('7 - Digite a data do resgate: [dd/mm/aaaa]')
+    adotado = input('8 - O felino foi adotado? (S ou N): ').upper()
+    print("")
+    nova_linha = [nome, sexo, idade, raca, cor, castrado, data_resgate, adotado]
+    matriz.append(nova_linha)
     print("Novo felino cadastrado com sucesso.")
+    return
 
 
 # função para alterar informações dos felinos (opção 2 do menu)
@@ -37,7 +37,7 @@ def alterar_status(matriz):
     while True:
         print("******* Lista de Felinos *******")
         for i, felino in enumerate(matriz):
-            print(f"{i + 1}: Nome: {felino[0]}, Idade: {felino[2]}, Raça: {felino[3]}")
+            print(f"{i + 1}: Nome: {felino[0]} | Idade: {felino[2]}| Raça: {felino[3]}")
         
         escolha = input("Escolha o número do felino que deseja alterar ou '0' para voltar ao menu principal: ")
 
@@ -97,11 +97,13 @@ def calcular_estatisticas(matriz):
     total_adotados = sum(1 for felino in matriz if felino[7] == 'S')
     total_nao_adotados = total_felinos - total_adotados
     
-    print("\nEstatísticas gerais:")
+    print('')
+    print("\n********* Estatísticas gerais: *********")
     print(f"Porcentagem de machos: {total_machos / total_felinos * 100:.2f}%")
     print(f"Porcentagem de fêmeas: {total_femeas / total_felinos * 100:.2f}%")
     print(f"Porcentagem de adotados: {total_adotados / total_felinos * 100:.2f}%")
     print(f"Porcentagem de não adotados: {total_nao_adotados / total_felinos * 100:.2f}%")
+    print('**********************************************')
 
 # Função de filtragem (opção 5 do menu)
 def filtragem_dados(matriz):
@@ -169,6 +171,7 @@ while True: # apresenta o menu até o usuário digitar 7
     print('5) Filtragem de dados')
     print('6) Salvar')
     print('7) Sair do programa')
+    print('')
 
     opcaousuario = input("Digite o número da opção que deseja: ")
 
@@ -184,6 +187,12 @@ while True: # apresenta o menu até o usuário digitar 7
         filtragem_dados(matriz)
     elif opcaousuario == '6':
         salvar('registros.csv', matriz)
+        print('')
+        print('Registros atualizados com sucesso!')
+        print('')
     elif opcaousuario == '7':
+        print('')
         print("Salvando e Saindo do programa...")
-        salvar('registros')
+        print('')
+        salvar('registros.csv', matriz)
+        break  #sair do loop
